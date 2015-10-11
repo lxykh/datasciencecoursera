@@ -28,7 +28,7 @@ data[,2]         = activityLabel[data[,2],2]
 
 # calculating average of each variable for each activity and each subject
 meltData         = melt(data,id.vars= c("subject","activity"))
-newData          = dcast(molten, subject+activity ~ variable, fun.aggregate=mean)
+newData          = dcast(meltData, subject+activity ~ variable, fun.aggregate=mean)
 
 # create tidy data set
 write.table(newData,"tidy_data.txt",row.names = FALSE)
